@@ -1,11 +1,11 @@
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Iterator;
 
 /**
  * Created by Nisansa on 6/3/2017.
  */
-public class Model {
+public class Model implements Serializable{
     NeuralNetwork nn=null;
 
     HashMap<String,double[]> trainedModel=new HashMap<String,double[]>();
@@ -159,5 +159,25 @@ public class Model {
         }
 
         System.out.println(sb.toString());
+    }
+
+    public void saveModel() {
+
+        try {
+            FileOutputStream fileOut =
+                    new FileOutputStream("Serialize/trainedModel.ser");
+
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(trainedModel);
+            out.close();
+            fileOut.close();
+            System.out.printf("Serialized data is saved in Serialize/trainedModel.ser");
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

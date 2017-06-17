@@ -1,6 +1,5 @@
 import javax.sound.midi.Soundbank;
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -22,10 +21,21 @@ public class Main2 {
         Main2 m = new Main2();
 
         m.createTrainingPairs();
+        //m.createNegativeTrainingExamples();
 
 
         m.callNeuralNetwork();
 
+
+    }
+
+    private void createNegativeTrainingExamples() {
+
+        Iterator<String> keySet = objMap.keySet().iterator();
+        while (keySet.hasNext()) {
+
+
+        }
 
     }
 
@@ -67,10 +77,16 @@ public class Main2 {
 
     private void callNeuralNetwork() {
 
-        Model m = new Model(nameTempVecMap, trainingPairs, 5000, 0.001, 0.1, 14, 21);
-        m.printModel();
-        m.printModelKNN(6);
+        Model m = new Model(nameTempVecMap, trainingPairs, 1, 0.001, 0.1, 14, 21);
+        System.out.println("Training Process Done");
+        m.saveModel();
+       // m.printModel();
+
+        System.out.println("Serialized Model Saved");
+//        m.printModelKNN(6);
     }
+
+
 
     private void readFile(String file) {
         try {

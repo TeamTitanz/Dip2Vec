@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.text.*;
 import java.util.*;
 
@@ -5,7 +6,7 @@ import java.util.*;
  * Created by Nisansa on 6/3/2017.
  * Initially based on https://kunuk.wordpress.com/2010/10/11/neural-network-backpropagation-with-java/
  */
-public class NeuralNetwork {
+public class NeuralNetwork implements Serializable {
     static {
         Locale.setDefault(Locale.ENGLISH);
     }
@@ -236,7 +237,7 @@ public class NeuralNetwork {
                 double expected=inputs.get(key);
                 double goodLoopCount=-1;
 
-                do {
+//                do {
                     //Activate NN for source
                     setInput(key[0]);
 
@@ -296,7 +297,7 @@ public class NeuralNetwork {
                     //  }
 
                     //  applyBackpropagation(expectedOutputs[p])
-                }while(goodLoopCount>0);
+//                }while(goodLoopCount>0);
             }
             System.out.println("At epoch "+(i+1)+" error is "+error);
 
