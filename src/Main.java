@@ -45,7 +45,7 @@ public class Main {
 
 
     private void testSetUp(){
-        readFile("mapAll.txt");
+        readFile("obGraph.txt");
         //System.out.println();
         //printMap(objMap);
         stringMapTobinMap();
