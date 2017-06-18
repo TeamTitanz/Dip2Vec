@@ -40,7 +40,7 @@ public class Main2 {
     }
 
     private void createTrainingPairs() {
-        readFile("mapAll.txt");
+        readFile("./LawIE/Dip2Vec/mapAll.txt");
         int total = objMap.size();
         int count = 1;
         Iterator<String> keySet = objMap.keySet().iterator();

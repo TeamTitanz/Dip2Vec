@@ -173,7 +173,7 @@ public class Model implements Serializable {
 
         try {
             FileOutputStream fileOut =
-                    new FileOutputStream("Serialize/trainedModel.ser");
+                    new FileOutputStream("./LawIE/Dip2Vec/Serialize/trainedModel.ser");
 
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
             out.writeObject(trainedModel);
