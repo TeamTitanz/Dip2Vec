@@ -34,6 +34,14 @@ public class Model implements Serializable{
 
     }
 
+    public Model(HashMap<String, double[]> trainedModel ) {
+
+        this.trainedModel = trainedModel;
+        printModel();
+
+
+    }
+
 
     public String[] findKNN(String name,int k) throws Exception {
         return findKNN(name,k,0.5);

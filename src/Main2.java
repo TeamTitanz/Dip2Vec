@@ -77,10 +77,10 @@ public class Main2 {
 
     private void callNeuralNetwork() {
 
-        Model m = new Model(nameTempVecMap, trainingPairs, 1, 0.001, 0.1, 14, 21);
+        Model m = new Model(nameTempVecMap, trainingPairs, 5000, 0.001, 0.1, 1000, 600);
         System.out.println("Training Process Done");
         m.saveModel();
-       // m.printModel();
+        //m.printModel();
 
         System.out.println("Serialized Model Saved");
 //        m.printModelKNN(6);
