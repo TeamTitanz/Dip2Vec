@@ -44,9 +44,9 @@ public class Main2 {
     }
 
     private void createTrainingPairs() {
-//        readFile("./LawIE/Dip2Vec/mapAll.txt");
-        readFile("mapAll.txt");
-        int total = objMap.size();
+        readFile("./LawIE/Dip2Vec/mapAll.txt");
+//        readFile("mapAll.txt");
+        int total = objMap.sizegi();
         int count = 1;
         Iterator<String> keySet = objMap.keySet().iterator();
         while (keySet.hasNext()) {
