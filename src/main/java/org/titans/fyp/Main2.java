@@ -20,11 +20,15 @@ public class Main2 {
 
         Main2 m = new Main2();
 
+        int maxRuns = Integer.parseInt(args[0]);
+        int hiddenLayerSize = Integer.parseInt(args[1]);
+        int outputVecSize = Integer.parseInt(args[2]);
+
         m.createTrainingPairs();
         //m.createNegativeTrainingExamples();
 
 
-        m.callNeuralNetwork();
+        m.callNeuralNetwork(maxRuns , hiddenLayerSize, outputVecSize);
 
 
     }
@@ -40,7 +44,8 @@ public class Main2 {
     }
 
     private void createTrainingPairs() {
-        readFile("./LawIE/Dip2Vec/mapAll.txt");
+//        readFile("./LawIE/Dip2Vec/mapAll.txt");
+        readFile("mapAll.txt");
         int total = objMap.size();
         int count = 1;
         Iterator<String> keySet = objMap.keySet().iterator();
@@ -74,9 +79,9 @@ public class Main2 {
 
     }
 
-    private void callNeuralNetwork() {
+    private void callNeuralNetwork(int maxRuns, int hiddenLayerSize, int outputVecSize) {
 
-        Model m = new Model(nameTempVecMap, trainingPairs, 5000, 0.001, 0.1, 1000, 600);
+        Model m = new Model(nameTempVecMap, trainingPairs, maxRuns, 0.001, 0.1, hiddenLayerSize, outputVecSize);
         System.out.println("Training Process Done");
         m.saveModel();
         //m.printModel();
