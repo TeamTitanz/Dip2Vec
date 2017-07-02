@@ -1,6 +1,7 @@
 package org.titans.fyp;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -14,6 +15,7 @@ public class Main2 {
     HashMap<double[][], Double> trainingPairs = new HashMap<double[][], Double>();
     HashMap<String, double[]> nameTempVecMap = new HashMap<String, double[]>();
     HashMap<String, String[]> objMap = new HashMap<String, String[]>();
+    public static String folderPath = "./LawIE/Dip2Vec";
 
     public static void main(String[] args) {
 
@@ -23,6 +25,7 @@ public class Main2 {
         int maxRuns = Integer.parseInt(args[0]);
         int hiddenLayerSize = Integer.parseInt(args[1]);
         int outputVecSize = Integer.parseInt(args[2]);
+        folderPath = args[3];
 
         m.createTrainingPairs();
         //m.createNegativeTrainingExamples();
@@ -44,7 +47,7 @@ public class Main2 {
     }
 
     private void createTrainingPairs() {
-        readFile("./LawIE/Dip2Vec/mapAll.txt");
+        readFile(folderPath + File.separator + "mapAll.txt");
 //        readFile("mapAll.txt");
         int total = objMap.size();
         int count = 1;
